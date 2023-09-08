@@ -1,0 +1,337 @@
+@import "./css/reset.css";
+@import "_fonts";
+@import "_vars";
+@import "_mixin";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  background-color: @main_lightest;
+  color: @main_dark;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.text_caption {
+  .font_size(@small, @small_lh);
+}
+
+.text_mini {
+  .font_size(@medium, @medium_lh);
+}
+
+.text_main {
+  .font_size(@normal, @normal_lh);
+}
+
+.text_heading {
+  .font_size(@major, @major_lh);
+}
+
+.text_large {
+  .font_size(@large, @large_lh);
+}
+
+.btn_white {
+  color: @main_lightest;
+  opacity: 0.7;
+  &--active,
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn_green {
+  color: @main_dark;
+  padding: 8px 24px;
+  border-radius: 5px;
+  text-align: left;
+  &--active,
+  &:hover {
+    color: @accent_darkest;
+    background-color: @accent_lightest;
+  }
+}
+
+.btn_green_dark {
+  border-radius: 5px;
+  color: @main_lightest;
+  background: @accent_darkest;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  & svg * {
+    stroke: @main_lightest;
+    width: 20px;
+    height: 20px;
+  } 
+}
+
+.btn_green_text {
+  color: @accent_darkest;
+  font-size: @medium;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & svg * {
+    stroke: @accent_darkest;
+    width: 15px;
+    height: 11px;
+  }
+}
+
+.header {
+  background-color: @accent_dark;
+  color: @main_lightest;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    margin-right: 64px;
+  }
+  & .logo__img {
+    width: 120px;
+    min-width: 120px;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    & .menu__buton {
+      text-transform: uppercase;
+    }
+  }
+  &__inf {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  &__icon {
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+  }
+}
+
+.inf {
+  &__block {
+    display: flex;
+    align-items: center;
+  }
+  &__user {
+    width: 42px;
+    height: 42px;
+    margin-right: 8px;
+  }
+}
+
+.main {
+  padding: 0 36px;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+  &__content-box {
+    padding: 95px 0 50px 44px;
+    width: 100%;
+  }
+}
+
+.aside {
+  width: 235px;
+  min-width: 235px;
+  display: flex;
+  flex-direction: column;
+  &__head {
+    padding: 26px 24px;
+  }
+  &__title {
+    color: @main_darkest;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 12px 0 0;
+    border-right: 1px solid @main;
+    height: 100%;
+  }
+}
+
+.content-box {
+  display: grid;
+  grid-template: repeat(auto-fill, 412px)/repeat(auto-fill, minmax(335px, 1fr));
+  gap: 38px 28px;
+  overflow: auto;
+  scrollbar-width: none; 
+  &::-webkit-scrollbar {
+    width: 0px !important;
+  }
+  &__item {
+    width: 100%;
+    height: 100%;
+    min-height: 412px;
+  }
+}
+
+.card {
+    background-color: @main_light;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  &__img {
+    height: 200px;
+    min-height: 200px;
+    background-color: @accent_dark;
+    overflow: hidden;
+    & img {
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+  }
+  &__inf {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title-text {
+    margin-top: 8px;
+    font-weight: 600;
+    color: @main_darkest;
+  }
+  &__subtitle-text {
+    -webkit-line-clamp: 2;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+  }
+  &__button {
+    width: 100%;
+    margin-top: 20px;
+    & span {
+      visibility: hidden;
+    }
+    .card:hover & span {
+      visibility: visible;
+    }
+  }
+}
+
+.footer{
+  &__button,
+  &__menu--check {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .header {
+    &__wrapper {
+      padding: 29px 25px 24px;
+    }
+    &__logo {
+      margin-right: 35px;
+    }
+    &__menu {
+      gap: 15px;
+    }
+    &__inf {
+      gap: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .header{
+    &__menu {
+      position: absolute;
+      bottom: 70px;
+      left: 16px;
+      background: #1fbea5;
+      flex-direction: column;
+      padding: 16px;
+      border-radius: 5px;
+      display: none;
+  }}
+  .footer{
+    &__button {
+    position: absolute;
+    display: block;
+    bottom: 10px;
+    left: 16px;
+  }}
+  #footer__menu:checked + .header {
+    .header__menu {
+      display: flex;
+    }
+  }
+} 
+
+@media screen and (max-width: 700px) {
+  .main {
+    flex-direction: column;
+    padding: 0;
+    &__content-box {
+      padding: 18px 16px 70px;
+    }
+  }
+  .inf__block:not(:last-child) {
+    display: none;
+  }
+  .aside {
+    width: 100%;
+    min-width: unset;
+    padding-bottom: 18px;
+    &__nav {
+      flex-direction: row;
+      border-right: unset;
+      padding: 0 16px;
+      overflow: auto;
+      scrollbar-width: none; 
+      &::-webkit-scrollbar {
+        height: 0px !important;
+      }
+    }
+    &__head {
+      padding: 26px 16px;
+    }
+    &__button {
+      min-width: max-content;
+      padding: 8px 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .header__wrapper {
+    padding: 20px 10px 20px;
+  }
+  .content-box {
+    grid-template: repeat(auto-fill, 412px)/repeat(auto-fill, minmax(290px, 1fr));
+  }
+}
